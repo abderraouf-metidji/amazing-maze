@@ -83,9 +83,15 @@ class Maze:
         for line in maze_display:
             maze_str += "".join(line) + "\n"
         print(maze_str)
+        return maze_str
+    
+    def save_maze_to_txt(self, filename, content):
+        with open(filename, 'w') as file:
+            file.write(content)
 
 if __name__ == "__main__":
     n = int(input("Enter the size of the maze: "))
     maze = Maze("maze", n)
     maze.backtrack(maze.board[0][0])
-    maze.print_maze()
+    maze_str = maze.print_maze()
+    maze.save_maze_to_txt('maze.txt', maze_str)
