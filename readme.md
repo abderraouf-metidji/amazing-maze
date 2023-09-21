@@ -8,7 +8,7 @@ Project done using :
 We were tasked with creating 2 algorithms to generate mazes and 2 algorithms to solve the maze we have generated. 
 
 The algorithm used are:
-* **Recursive / Backtracking **
+* **Recursive / Backtracking**
 * **Kruskal**
 * **Backtracking / Backtracking**
 * **A***
