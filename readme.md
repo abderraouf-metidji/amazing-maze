@@ -1,7 +1,6 @@
 # Maze generation and resolution
 
-Project done using : 
-
+Project done using : ![Python](https://img.shields.io/badge/python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54)
 
 ## Project
 We were tasked with creating 2 algorithms to generate mazes and 2 algorithms to solve the maze we have generated. 
