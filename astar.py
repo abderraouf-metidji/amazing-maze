@@ -1,4 +1,7 @@
-import os, copy, random, heapq
+import os
+import copy
+import random
+import heapq
 from collections import deque
 
 class Node:
@@ -11,24 +14,26 @@ class Node:
         self.g = 0  # Cost from start node to this node
         self.h = 0  # Heuristic (estimated cost from this node to goal)
         self.f = 0  # Total cost (f = g + h)
-    
+
     def __lt__(self, other):
         """
         Compare two nodes based on their total cost.
         """
         return self.f < other.f
 
+
 class Solver:
     def __init__(self):
         """
-        Initialize a solver with a maze file, a board, a wall character, a route character, a start position and a finish position.
+        Initialize a solver with a maze file, a board, a wall character,
+        a route character, a start position and a finish position.
         """
         self.board = []
         self.wall = '#'
         self.route = '.'
         self.start = (0, 0)
         self.finish = None  # Finish cell will be set during maze loading
-    
+
     def get_maze(self, file):
         """
         Load the maze from a file and set the finish position.
@@ -37,7 +42,7 @@ class Solver:
             self.board = [list(line.strip()) for line in maze_file]
         # Set the finish cell to the last cell in the list
         self.finish = (len(self.board) - 1, len(self.board[0]) - 1)
-    
+
     def astar_solver(self):
         """
         Solve the maze using the A* algorithm.
@@ -63,13 +68,13 @@ class Solver:
                     neighbor.parent = current_node
                     heapq.heappush(open_set, (neighbor.f, neighbor, neighbor.position))
         return None
-    
+
     def heuristic(self, node, finish_node):
         """
         Calculate the Manhattan distance heuristic between a node and the finish node.
         """
         return abs(node.position[0] - finish_node.position[0]) + abs(node.position[1] - finish_node.position[1])
-    
+
     def get_neighbors(self, node):
         """
         Get the neighboring nodes of a node.
@@ -82,7 +87,7 @@ class Solver:
             if 0 <= new_x < len(self.board) and 0 <= new_y < len(self.board[0]) and self.board[new_x][new_y] != self.wall:
                 neighbors.append(Node((new_x, new_y), node))
         return list(neighbors)
-    
+
     def reconstruct_path(self, current_node):
         """
         Reconstruct the path from the start node to the current node.
@@ -94,7 +99,7 @@ class Solver:
             path.appendleft((x, y))
             current_node = current_node.parent
         return list(path)
-    
+
     def print_solution(self):
         """
         Print the maze with the solution.
@@ -105,7 +110,7 @@ class Solver:
 if __name__ == "__main__":
     solver = Solver()  # Create a Solver object
     solver.get_maze("maze.txt")  # Load the maze from the file
-    
+
     # Create the directory to store the maze solutions if it doesn't exist
     output_dir = "solved_mazes"
     if not os.path.exists(output_dir):
@@ -118,7 +123,7 @@ if __name__ == "__main__":
 
     # Solve the maze
     solver.astar_solver()
-    
+
     # Construct the path to the file
     file_path = os.path.join(output_dir, file_name)
 

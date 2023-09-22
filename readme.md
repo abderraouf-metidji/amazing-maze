@@ -66,4 +66,9 @@ We will save the value of each cell in different lists that we will use when goi
 
 Here we are not looking for an exit but rather calculating the most optimal path to take in order to solve the maze. 
 
+## Complexity
+
+
+
 ## Conclusion
+
