@@ -69,7 +69,12 @@ Here we are not looking for an exit but rather calculating the most optimal path
 
 ## Complexity
 
-
+TBD
 
 ## Conclusion
 
+The project is not finished yet but from what I was able to test on my end the kruskal algorithm is having a harder time generating bigger mazes when compared to the backtracking/recursive algorithm. This might be because I have decided to work with cells instead of sets when generating the mazes. 
+
+Maybe using the method where we first iterate through all the walls in the maze and then pick a random wall to connect two cells instead of two cells and break a wall might be more efficient.
+
+Other than that we are able, with the run.py file, to generate a maze based on two algorithms and solve the generated maze with two algorithms as well. When we decide to solve a maze we simply have to name the file and the maze + png of the maze will be generated in a folder. 
