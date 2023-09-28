@@ -1,4 +1,5 @@
 import random
+import cProfile
 
 class Cell:
     def __init__(self, x, y):
@@ -115,3 +116,5 @@ if __name__ == "__main__":
     maze.backtrack(maze.board[0][0])  # Generate the maze starting from the top-left cell
     maze_str = maze.print_maze()  # Generate the string representation of the maze
     maze.save_maze_to_txt('maze.txt', maze_str)  # Save the maze to a text file
+
+    cProfile.run('maze.backtrack(maze.board[0][0])')  # Profile the backtrack algorithm
